@@ -13,14 +13,20 @@ pipeline {
             }
         }
 
-stage('job1') {
+        stage('job1') {
             steps {
                 sh '''
                 mv
                 mkdir jea
-                Top
-                '''
 
+                '''
+            
+
+            }
+
+        }
+         
+           
         
     }
 }
