@@ -16,7 +16,7 @@ pipeline {
         stage('job1') {
             steps {
                 sh '''
-                mv
+                lsblk
                 mkdir jea
 
                 '''
