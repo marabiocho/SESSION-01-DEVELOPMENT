@@ -3,41 +3,37 @@ pipeline {
 
     stages {
 
-        stage('Hello1') {
+        stage('removing previous image') {
             steps {
                 sh '''
-                ls
-                pwd
+                docker rm -f $(docker ps -aq)
+                
                 
                 '''
             }
         }
     
     
-    stage('Hello2') {
+    stage('building the image') {
             steps {
                 sh '''
-                uname -r
-                
+                docker build -t kantin:001 .
 
                 '''
             }
         }
     
-    stage('Hello3') {
+    stage('checking images') {
             steps {
                 sh '''
-                 ls
-                 pwd
+                 docker images
                 '''
             }
         }
-    stage('Hello4') {
+    stage('launching container') {
             steps {
                 sh '''
-                pwd
-                ls
-                
+                docker run -i --name kantin kantin:001
 
                 '''
             }
@@ -47,3 +43,6 @@ pipeline {
 
 
 }
+                
+
+                
