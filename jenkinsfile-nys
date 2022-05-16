@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('job') {
+            steps {
+                sh '''
+                cd
+                pwd
+                echo "hello world"
+                '''
+            }
+        }
+
+stage('job1') {
+            steps {
+                sh '''
+                mv
+                mkdir jea
+                Top
+                '''
+
+        
+    }
+}
