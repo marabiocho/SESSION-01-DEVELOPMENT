@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-      stage('Hello') {
+      stage('Hello1') {
             steps {
                 sh '''
             ls
@@ -12,7 +12,7 @@ pipeline {
             }
         }
 
-      stage('Hello') {
+      stage('Hello2') {
             steps {
                 sh '''
             ls
@@ -23,7 +23,7 @@ pipeline {
         }
     
      
-      stage('Hello') {
+      stage('Hello3') {
             steps {
                 sh '''
             ls -l
