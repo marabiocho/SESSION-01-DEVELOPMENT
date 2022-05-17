@@ -2,21 +2,41 @@ pipeline {
     agent any
 
     stages {
-          
-        stage('Hello') {
+
+      stage('Hello') {
             steps {
-                echo 'Hello World'
+                sh '''
+            ls
+            touch kantin    
+                '''
             }
         }
 
+      stage('Hello') {
+            steps {
+                sh '''
+            ls
+            uname -r    
+
+                '''
+            }
+        }
+    
+     
+      stage('Hello') {
+            steps {
+                sh '''
+            ls -l
+            pwd
+                '''
+            }
+        }
     
     
     
     
-    
-    
-    
-    
+
+
 }
 
 
