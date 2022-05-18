@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-     environment {
-        USERNAME = 'devopseasylearning2021'
-        PASSWORD    = 'DevOps2021@'
-    }
+     
 
     options { buildDiscarder(logRotator(artifactDaysToKeepStr: '',
      artifactNumToKeepStr: '', daysToKeepStr: '3', numToKeepStr: '5'))
@@ -17,7 +14,7 @@ pipeline {
             steps {
                 sh '''
             ls
-            sudo -s docker build -t kantin10:002 .    
+            sudo -s docker build -t kantin10:003 .    
                 '''
             }
         }
@@ -26,7 +23,7 @@ pipeline {
             steps {
                 sh '''
             ls
-            sudo -s docker tag kantin10:002     devopseasylearning2021/kantin10:002
+            sudo -s docker tag kantin10:003     devopseasylearning2021/kantin10:003
 
                 '''
             }
@@ -45,7 +42,7 @@ pipeline {
     stage('Docker PUSH') {
             steps {
                 sh '''
-            sudo -s docker push devopseasylearning2021/kantin10:002
+            sudo -s docker push devopseasylearning2021/kantin10:003
                 '''
             }
         }
