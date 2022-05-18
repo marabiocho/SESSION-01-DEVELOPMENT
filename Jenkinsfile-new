@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh '''
             ls
-            sudo docker build -t tongue:001 .    
+            sudo -s docker build -t tongue:001 .    
                 '''
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh '''
             ls
-            sudo docker tag kantin:001     devopseasylearning2021/kantin1:001
+            sudo -s docker tag kantin:001     devopseasylearning2021/kantin1:001
 
                 '''
             }
@@ -36,7 +36,7 @@ pipeline {
       stage('Docker Login') {
             steps {
                 sh '''
-            sudo docker login -u $USERNAME -p $PASSWORD
+            sudo -s docker login -u $USERNAME -p $PASSWORD
                 '''
             }
         }
@@ -45,7 +45,7 @@ pipeline {
     stage('Docker PUSH') {
             steps {
                 sh '''
-            sudo docker push devopseasylearning2021/kantin1:001
+            sudo -s docker push devopseasylearning2021/kantin1:001
                 '''
             }
         }
