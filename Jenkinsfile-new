@@ -45,7 +45,7 @@ pipeline {
     stage('Docker PUSH') {
             steps {
                 sh '''
-            sudo -s docker push devopseasylearning2021/kantin1:001
+            sudo -s docker push devopseasylearning2021/tongue:001
                 '''
             }
         }
