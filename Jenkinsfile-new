@@ -18,7 +18,7 @@ pipeline {
      stage('Build images') {
             steps {
                 sh '''
-                docker build -t devops:001 .
+               sudo docker build -t devops:001 .
                 
                 '''
             }
@@ -28,7 +28,7 @@ pipeline {
      stage('Tag image ') {
             steps {
                sh '''
-              docker tag devops:001  devopseasylearning2021/devops1:001 
+             sudo  docker tag devops:001  devopseasylearning2021/devops1:001 
                 '''
             }
         }
@@ -48,7 +48,7 @@ pipeline {
      stage('Docker push ') {
             steps {
                sh '''
-              docker push devopseasylearning2021/devops1:001 
+             sudo  docker push devopseasylearning2021/devops1:001 
                 '''
             }
         }
