@@ -1,61 +1,62 @@
 pipeline {
     agent any
 
-     
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('Dockerhub')
+	}
 
     options { buildDiscarder(logRotator(artifactDaysToKeepStr: '',
      artifactNumToKeepStr: '', daysToKeepStr: '3', numToKeepStr: '5'))
       disableConcurrentBuilds() }
-
+      
+      
     stages {
-
-
-      stage('Build images') {
-            steps {
-                sh '''
-            ls
-            sudo -s docker build -t kantin10:003 .    
-                '''
-            }
-        }
-
-      stage('Tag image') {
-            steps {
-                sh '''
-            ls
-            sudo -s docker tag kantin10:003     devopseasylearning2021/kantin10:003
-
-                '''
-            }
-        }
-    
      
+     
+
+
+     stage('Build images') {
+            steps {
+                sh '''
+                docker build -t devops:001 .
+                
+                '''
+            }
+        }
+
+
+     stage('Tag image ') {
+            steps {
+               sh '''
+              docker tag devops:001  devopseasylearning2021/devops1:001 
+                '''
+            }
+        }
+
+
+
       stage('Docker Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+           
+            
+
+     stage('Docker push ') {
             steps {
-                sh '''
-            sudo -s docker login -u $USERNAME -p $PASSWORD
+               sh '''
+              docker push devopseasylearning2021/devops1:001 
                 '''
             }
         }
-    
-    
-    stage('Docker PUSH') {
-            steps {
-                sh '''
-            sudo -s docker push devopseasylearning2021/kantin10:003
-                '''
-            }
-        }
-    
-
-
-}
 
 
 
 
-
-
+    }
 
 
 
